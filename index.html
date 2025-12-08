@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Tyler Donohue – Full-Stack & iOS Developer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Portfolio of Tyler Donohue – Full-Stack & iOS Developer." />
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <div class="page">
+        <header>
+            <h1>Tyler Donohue</h1>
+            <h2>Full-Stack & iOS Engineer</h2>
+            <div class="meta">
+                <span>📧 <a href="mailto:tydonocode@gmail.com">tydonocode@gmail.com</a></span>
+                <span>📱 801-800-3486</span>
+                <span class="pill">End-to-end apps · Payments · Subscriptions</span>
+            </div>
+        </header>
+
+        <main>
+            <!-- About -->
+            <section id="about">
+                <h3>About</h3>
+                <p>
+                    Adaptable, self-driven iOS engineer with 5 years of Swift/Objective-C
+                    experience and 1 year of full-stack work. I specialize in building
+                    end-to-end mobile apps, subscription flows, and secure payment
+                    integrations on tight timelines.
+                </p>
+            </section>
+
+            <!-- Skills -->
+            <section id="skills">
+                <h3>Technical Skills</h3>
+                <div class="skills-grid">
+                    <div>
+                        <p><strong>Core Tech</strong></p>
+                        <div class="badge-row">
+                            <span class="badge">Swift / Objective-C</span>
+                            <span class="badge">JavaScript</span>
+                            <span class="badge">Python</span>
+                            <span class="badge">REST APIs</span>
+                            <span class="badge">AWS</span>
+                            <span class="badge">Firebase</span>
+                        </div>
+                    </div>
+                    <div>
+                        <p><strong>iOS & Architecture</strong></p>
+                        <div class="badge-row">
+                            <span class="badge">SwiftUI · UIKit</span>
+                            <span class="badge">MVVM</span>
+                            <span class="badge">Dependency Injection</span>
+                            <span class="badge">Combine · async/await</span>
+                            <span class="badge">Core Data · Realm</span>
+                        </div>
+                    </div>
+                    <div>
+                        <p><strong>Payments & Infra</strong></p>
+                        <div class="badge-row">
+                            <span class="badge">Stripe</span>
+                            <span class="badge">StoreKit / IAP</span>
+                            <span class="badge">Subscriptions & Free Trials</span>
+                            <span class="badge">Node / Microservices</span>
+                            <span class="badge">CI/CD · Git</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Experience -->
+            <section id="experience">
+                <h3>Professional Experience</h3>
+
+                <p class="experience-role">Full-Stack Developer — Freelance / Team Projects</p>
+                <p class="experience-dates">Nov 2021 – Present</p>
+                <ul>
+                    <li>Released multiple iOS apps to the App Store, owning architecture, implementation, and
+                        deployment.</li>
+                    <li>Integrated Firebase and AWS for real-time sync, backend support, and monitoring.</li>
+                    <li>Implemented secure storage (Keychain, encryption) and robust memory management.</li>
+                    <li>Built and maintained custom frameworks, plus payment flows with Stripe and Apple Pay.</li>
+                    <li>Designed and integrated a Stripe-based paywall microservice into a monolithic web app.</li>
+                </ul>
+
+                <br />
+
+                <p class="experience-role">Independent App Developer</p>
+                <p class="experience-dates">Oct 2019 – Nov 2021</p>
+                <ul>
+                    <li><strong>Gaming Wizards</strong> — helps tabletop gamers find others nearby to play with.</li>
+                    <li><strong>Remembrances</strong> — helps people share and preserve memories of loved ones.</li>
+                    <li><strong>WaterLocks</strong> — enables secure item sales without face-to-face communication.</li>
+                </ul>
+            </section>
+
+            <!-- Projects / Links -->
+            <section id="projects">
+                <h3>Projects & Links</h3>
+                <p>Selected projects and code samples are available in my portfolio and GitHub.</p>
+                <div class="button-row">
+                    <!-- Replace hrefs when you have real links -->
+                    <a class="btn" href="#" target="_blank" rel="noreferrer">View Portfolio</a>
+                    <a class="btn btn-secondary" href="#" target="_blank" rel="noreferrer">View GitHub</a>
+                </div>
+                <p class="link-muted" style="margin-top: 8px;">
+                    (Update these links once your live portfolio & GitHub URLs are ready.)
+                </p>
+            </section>
+
+            <!-- Contact -->
+            <section id="contact">
+                <h3>Contact</h3>
+                <p>
+                    Interested in working together or have questions about my experience?
+                    Reach out and I’ll get back to you.
+                </p>
+                <div class="button-row">
+                    <a class="btn" href="mailto:tydonocode@gmail.com?subject=Portfolio%20Inquiry">
+                        Email Me
+                    </a>
+                    <span class="link-muted">You can also ping me about this site or the AI assistant.</span>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Chat launcher -->
+    <button class="chat-launcher" id="chat-launcher" aria-label="Chat with AI Tyler">
+        💬
+    </button>
+
+    <!-- Chat widget -->
+    <div class="chat-widget" id="chat-widget">
+        <div class="chat-header">
+            <div class="chat-header-title">
+                <span>AI Tyler</span>
+                <span>Ask me about my experience</span>
+            </div>
+            <button class="chat-close-btn" id="chat-close-btn" aria-label="Close chat">×</button>
+        </div>
+        <div class="chat-messages" id="chat-messages"></div>
+        <form class="chat-form" id="chat-form">
+            <input type="text" class="chat-input" id="chat-input"
+                placeholder="Ask about my skills, projects, or timeline..." autocomplete="off" />
+            <button class="chat-send-btn" type="submit">Send</button>
+        </form>
+    </div>
+
+    <!-- JS -->
+    <script src="script.js" defer></script>
+</body>
+
+</html>
