@@ -413,3 +413,36 @@ ul li::before {
         right: 4vw;
     }
 }
+
+.apps-grid {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.app-card {
+    width: 30%;
+    background: #161616;
+    padding: 20px;
+    border-radius: 14px;
+    text-align: center;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+}
+
+.app-card h4 {
+    margin: 10px 0 6px;
+}
+
+.app-tags {
+    color: #aaa;
+    font-size: 0.85rem;
+    margin-bottom: 12px;
+}
+
+.app-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 20%;
+    margin-bottom: 8px;
+}

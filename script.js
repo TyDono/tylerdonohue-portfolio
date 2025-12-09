@@ -11,7 +11,7 @@ let messages = [];
 
 // Change this once your subdomain is working.
 // For testing, you can use your Railway URL instead.
-const API_URL = 'https://api.tylerdonohue.com/chat';
+const API_URL = 'https://tylerdonohue-backend-production.up.railway.app/chat';
 
 function appendMessage(sender, text) {
     const div = document.createElement('div');
