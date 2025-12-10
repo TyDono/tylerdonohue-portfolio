@@ -114,9 +114,15 @@ section:nth-of-type(5) {
 }
 
 section h3 {
-    font-size: 1.1rem;
-    margin-bottom: 10px;
-    color: #e5e7eb;
+    font-size: 1.4rem;
+}
+
+#about h3,
+#skills h3,
+#apps h3,
+#contact h3,
+#experience h3 {
+    font-size: 1.9rem;
 }
 
 section p {
@@ -173,8 +179,9 @@ ul li::before {
 
 /* ---------- Experience ---------- */
 .experience-role {
+    font-size: 1.05rem;
     font-weight: 600;
-    color: #e5e7eb;
+    margin-top: 8px;
 }
 
 .experience-dates {
@@ -428,6 +435,10 @@ ul li::before {
     border-radius: 14px;
     text-align: center;
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* center icon + text horizontally */
 }
 
 .app-card h4 {
@@ -437,6 +448,12 @@ ul li::before {
 .app-tags {
     color: #aaa;
     font-size: 0.85rem;
+    margin-bottom: 6px;
+}
+
+.app-desc {
+    color: #d1d5db;
+    font-size: 0.85rem;
     margin-bottom: 12px;
 }
 
@@ -445,4 +462,13 @@ ul li::before {
     height: 80px;
     border-radius: 20%;
     margin-bottom: 8px;
+}
+
+/* Center the tappable tags inside cards */
+.app-card .button-row {
+    width: 100%;
+    justify-content: center;
+    /* center buttons horizontally */
+    margin-top: auto;
+    /* push buttons to the bottom of the card */
 }
