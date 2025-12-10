@@ -114,7 +114,26 @@ section:nth-of-type(5) {
 }
 
 section h3 {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 10px;
     font-size: 1.4rem;
+}
+
+section h3::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(to right, #22c55e, #3b82f6);
+    border-radius: 999px;
+    transition: width 0.25s ease-out;
+}
+
+section:hover h3::after {
+    width: 100%;
 }
 
 #about h3,
@@ -175,6 +194,13 @@ ul li::before {
     background: rgba(55, 65, 81, 0.7);
     color: #e5e7eb;
     border: 1px solid rgba(148, 163, 184, 0.3);
+    transition: transform 0.15s ease-out, box-shadow 0.15s ease-out, border-color 0.15s ease-out;
+}
+
+.badge:hover {
+    transform: translateY(-1px) scale(1.03);
+    box-shadow: 0 8px 18px rgba(15, 23, 42, 0.8);
+    border-color: rgba(59, 130, 246, 0.8);
 }
 
 /* ---------- Experience ---------- */
@@ -254,6 +280,7 @@ ul li::before {
     box-shadow: 0 14px 30px rgba(22, 163, 74, 0.55);
     transition: transform 0.16s ease-out, box-shadow 0.16s ease-out;
     z-index: 40;
+    animation: pulseChat 2.8s ease-in-out infinite;
 }
 
 .chat-launcher:hover {
@@ -396,14 +423,15 @@ ul li::before {
 @keyframes fadeInUp {
     from {
         opacity: 0;
-        transform: translateY(10px);
+        transform: translateY(10px) scale(0.99);
     }
 
     to {
         opacity: 1;
-        transform: translateY(0);
+        transform: translateY(0) scale(1);
     }
 }
+
 
 /* ---------- Responsive tweaks ---------- */
 @media (max-width: 640px) {
@@ -418,6 +446,20 @@ ul li::before {
     .chat-widget {
         width: 92vw;
         right: 4vw;
+    }
+}
+
+@keyframes pulseChat {
+
+    0%,
+    100% {
+        transform: translateY(0) scale(1);
+        box-shadow: 0 14px 30px rgba(22, 163, 74, 0.55);
+    }
+
+    50% {
+        transform: translateY(-1px) scale(1.04);
+        box-shadow: 0 18px 40px rgba(22, 163, 74, 0.8);
     }
 }
 
@@ -438,8 +480,19 @@ ul li::before {
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* center icon + text horizontally */
+    transition:
+        transform 0.2s ease-out,
+        box-shadow 0.2s ease-out,
+        border 0.2s ease-out;
+    border: 1px solid rgba(148, 163, 184, 0.3);
 }
+
+.app-card:hover {
+    transform: translateY(-6px) rotate3d(1, 0, 0, 4deg);
+    box-shadow: 0 14px 30px rgba(15, 23, 42, 0.8);
+    border-color: rgba(45, 212, 191, 0.8);
+}
+
 
 .app-card h4 {
     margin: 10px 0 6px;
