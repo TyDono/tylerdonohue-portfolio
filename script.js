@@ -13,6 +13,62 @@ let messages = [];
 // For testing, you can use your Railway URL instead.
 const API_URL = 'https://tylerdonohue-backend-production.up.railway.app/chat';
 
+// Update this to your actual backend URL
+const BACKEND_BASE = 'https://tylerdonohue-backend-production.up.railway.app';
+
+document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('contact-form');
+    if (!form) return;
+
+    const statusEl = document.getElementById('contact-status');
+    const submitBtn = document.getElementById('contact-submit');
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        if (!submitBtn) return;
+
+        const name = document.getElementById('contact-name').value.trim();
+        const email = document.getElementById('contact-email').value.trim();
+        const message = document.getElementById('contact-message').value.trim();
+
+        if (!email || !message) {
+            if (statusEl) statusEl.textContent = 'Please include at least an email and a message.';
+            return;
+        }
+
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending...';
+        if (statusEl) statusEl.textContent = '';
+
+        try {
+            const resp = await fetch(`${BACKEND_BASE}/contact`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ name, email, message }),
+            });
+
+            const data = await resp.json().catch(() => ({}));
+
+            if (resp.ok && data.ok) {
+                form.reset();
+                if (statusEl) statusEl.textContent = 'Thanks! Your message has been sent.';
+            } else {
+                if (statusEl) statusEl.textContent =
+                    'Something went wrong sending your message. You can also email me directly.';
+            }
+        } catch (err) {
+            console.error('Contact submit error:', err);
+            if (statusEl) statusEl.textContent =
+                'Network error. Please try again or email me directly.';
+        } finally {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Send Message';
+        }
+    });
+});
+
 function appendMessage(sender, text) {
     const div = document.createElement('div');
     div.className = 'chat-bubble ' + (sender === 'ai' ? 'chat-bubble-ai' : 'chat-bubble-user');
