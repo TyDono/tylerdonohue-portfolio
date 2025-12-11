@@ -37,7 +37,7 @@ window.addEventListener('load', () => {
     setTimeout(() => {
         openChat();
         const greeting =
-            "Hi, I’m AI Tyler. Ask me about my skills, experiance, and work history";
+            "Hi, I’m AI Tyler. Ask me about my skills, experience, and work history";
         appendMessage('ai', greeting);
         // Seed the conversation so the backend sees the greeting as the first assistant message
         messages.push({ role: 'assistant', content: greeting });
