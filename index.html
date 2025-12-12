@@ -11,28 +11,64 @@
     <link rel="stylesheet" href="styles.css" />
 </head>
 
-<body>
+<body id="top">
     <div class="page">
-        <header>
-            <h1>Tyler Donohue</h1>
-            <h2>Full-Stack & Mobile Developer</h2>
-            <div class="meta">
-                <span>📧 <a href="mailto:tydonocode@gmail.com">tydonocode@gmail.com</a></span>
-                <span>📱 801-800-3486</span>
-                <span class="pill">End-to-end apps · Payments · Subscriptions · Social</span>
+
+        <!-- Top navigation -->
+        <nav class="top-nav" aria-label="Main navigation">
+            <div class="top-nav-brand">
+                Tyler Donohue
             </div>
+            <div class="top-nav-links">
+                <a href="#top">Home</a>
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#experience">Experience</a>
+                <a href="#apps">Featured Apps</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </nav>
+
+        <!-- Hero -->
+        <header class="hero">
+            <div class="hero-text">
+                <h1>Tyler Donohue</h1>
+                <h2>Full-Stack & Mobile Developer</h2>
+                <div class="meta">
+                    <span>📧 <a href="mailto:tydonocode@gmail.com">tydonocode@gmail.com</a></span>
+                    <span>📱 801-800-3486</span>
+                    <span class="pill">End-to-end apps · Payments · Subscriptions · Social</span>
+                </div>
+                <p class="hero-note">
+                    💬 Have questions? Try the AI version of me in the bottom-right corner.
+                </p>
+            </div>
+            <div class="hero-code-bg" aria-hidden="true">
+                <code>
+                    class TylerDeveloper {<br />
+                    &nbsp;&nbsp;languages = ["Swift", "Dart", "JavaScript", "Python"];<br />
+                    &nbsp;&nbsp;focus = ["Mobile", "Payments", "Social", "Backends"];<br />
+                    }
+                </code>
+            </div>
+
         </header>
 
         <main>
             <!-- About -->
             <section id="about">
-                <h3>About</h3>
-                <p>
-                    Adaptable, self-driven full-stack mobile developer with 5 years of Swift/Objective-C
-                    experience, 2 years of full-stack work, and 1 year of Flutter dev, I specialize in building
-                    end-to-end mobile apps, social apps, subscription flows, and secure payment
-                    integrations on tight timelines.
-                </p>
+                <div class="about-text">
+                    <h3>About</h3>
+                    <p>
+                        Adaptable, self-driven full-stack mobile developer with 5 years of Swift/Objective-C
+                        experience, 2 years of full-stack work, and 1 year of Flutter dev, I specialize in building
+                        end-to-end mobile apps, social apps, subscription flows, and secure payment
+                        integrations on tight timelines.
+                    </p>
+                </div>
+                <div class="about-photo">
+                    <img src="images/tyler-headshot-header.jpg" alt="Tyler Donohue headshot" />
+                </div>
             </section>
 
             <section id="skills" style="animation-delay: 0.18s;">
@@ -341,12 +377,16 @@
     <!-- Chat widget -->
     <div class="chat-widget" id="chat-widget">
         <div class="chat-header">
-            <div class="chat-header-title">
-                <span>AI Tyler</span>
-                <span>Ask me about my experience</span>
+            <div class="chat-header-left">
+                <img src="images/tyler-avatar-chat.jpg" alt="Tyler avatar" class="chat-avatar" />
+                <div class="chat-header-title">
+                    <span>AI Tyler</span>
+                    <span>Ask me about my experience</span>
+                </div>
             </div>
             <button class="chat-close-btn" id="chat-close-btn" aria-label="Close chat">×</button>
         </div>
+
         <div class="chat-messages" id="chat-messages"></div>
         <form class="chat-form" id="chat-form">
             <input type="text" class="chat-input" id="chat-input" placeholder="Ask about my skills, projects, ect..."
