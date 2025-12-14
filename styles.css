@@ -209,6 +209,7 @@ header.hero {
     border: 1px solid rgba(148, 163, 184, 0.35);
 }
 
+
 /* Optional inner wrapper (not used currently but harmless) */
 .hero-photo-inner {
     padding: 10px;
@@ -420,6 +421,14 @@ ul li::before {
     border: 1px solid rgba(148, 163, 184, 0.35);
 }
 
+.about-photo img {
+    width: 150px;
+    height: 190px;
+    border-radius: 22px;
+    object-fit: cover;
+    object-position: center 5%;
+}
+
 /* Mobile About layout */
 @media (max-width: 640px) {
     #about {
@@ -599,8 +608,10 @@ ul li::before {
     height: 28px;
     border-radius: 50%;
     object-fit: cover;
+    object-position: center 5%;
     border: 1px solid rgba(148, 163, 184, 0.7);
 }
+
 
 .chat-header-title {
     display: flex;
