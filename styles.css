@@ -723,31 +723,17 @@ ul li::before {
 
 /* ---------- Responsive tweaks ---------- */
 
-/* Keep the chat UI inside the same right padding/gutter as .page */
 :root {
-    --page-max: 960px;
-    /* must match .page max-width */
-    --page-pad-x: 16px;
-    /* must match .page horizontal padding */
-    --chat-gap: 18px;
-    /* your current right/bottom gap */
     --chat-w: 320px;
-    /* your chat-widget width */
+    --chat-gap: 18px;
+    /* distance from right edge */
+    --chat-reserve: calc(var(--chat-w) + var(--chat-gap) + 18px);
 }
 
-/* Right edge of the centered .page container (includes its padding) */
-@media (min-width: 641px) {
-
-    .chat-widget,
-    .chat-launcher {
-        right: max(var(--chat-gap),
-                calc((100vw - var(--page-max)) / 2 + var(--page-pad-x)));
-    }
-
-    /* Optional: guarantee the widget never intrudes into the left content */
-    .chat-widget {
-        width: min(var(--chat-w),
-                calc(var(--page-max) - (2 * var(--page-pad-x))));
+/* Only reserve space on desktop */
+@media (min-width: 900px) {
+    body.chat-open .page {
+        padding-right: calc(16px + var(--chat-reserve));
     }
 }
 
@@ -773,9 +759,10 @@ ul li::before {
     }
 }
 
-@media (min-width: 641px) and (max-width: 1100px) {
+@media (max-width: 640px) {
     .chat-widget {
-        width: 300px;
+        width: 92vw;
+        right: 4vw;
     }
 }
 
