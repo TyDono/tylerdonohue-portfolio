@@ -722,6 +722,63 @@ ul li::before {
 }
 
 /* ---------- Responsive tweaks ---------- */
+
+/* Keep the chat UI inside the same right padding/gutter as .page */
+:root {
+    --page-max: 960px;
+    /* must match .page max-width */
+    --page-pad-x: 16px;
+    /* must match .page horizontal padding */
+    --chat-gap: 18px;
+    /* your current right/bottom gap */
+    --chat-w: 320px;
+    /* your chat-widget width */
+}
+
+/* Right edge of the centered .page container (includes its padding) */
+@media (min-width: 641px) {
+
+    .chat-widget,
+    .chat-launcher {
+        right: max(var(--chat-gap),
+                calc((100vw - var(--page-max)) / 2 + var(--page-pad-x)));
+    }
+
+    /* Optional: guarantee the widget never intrudes into the left content */
+    .chat-widget {
+        width: min(var(--chat-w),
+                calc(var(--page-max) - (2 * var(--page-pad-x))));
+    }
+}
+
+/* Mobile: center Contact buttons (Send Message, Schedule a Call, etc.) */
+@media (max-width: 640px) {
+    #contact .contact-form .button-row {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 12px;
+        flex-wrap: wrap;
+        /* keeps it clean if buttons stack */
+    }
+
+    /* Optional: keep the button from spanning full width on mobile */
+    #contact .contact-form .button-row .btn {
+        width: auto;
+    }
+
+    /* Optional: center the "status" text too */
+    #contact #contact-status {
+        text-align: center;
+    }
+}
+
+@media (min-width: 641px) and (max-width: 1100px) {
+    .chat-widget {
+        width: 300px;
+    }
+}
+
 @media (max-width: 640px) {
     .page {
         padding: 18px 12px 80px;
