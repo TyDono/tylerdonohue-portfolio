@@ -352,7 +352,10 @@
                         <button type="submit" class="btn" id="contact-submit">
                             Send Message
                         </button>
-                        <span class="link-muted" id="contact-status"></span>
+                        <span class="link-muted" id="contact-status" aria-live="polite">
+                            <span class="spinner" id="contact-spinner" aria-hidden="true"></span>
+                            <span id="contact-status-text"></span>
+                        </span>
                     </div>
                 </form>
 

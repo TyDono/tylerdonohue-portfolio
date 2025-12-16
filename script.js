@@ -20,32 +20,39 @@ document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('contact-form');
     if (!form) return;
 
-    const statusEl = document.getElementById('contact-status');
     const submitBtn = document.getElementById('contact-submit');
+    const spinnerEl = document.getElementById('contact-spinner');
+    const statusTextEl = document.getElementById('contact-status-text');
+
+    const setStatus = (text, { loading = false } = {}) => {
+        if (spinnerEl) spinnerEl.classList.toggle('is-on', loading);
+        if (statusTextEl) statusTextEl.textContent = text || '';
+    };
 
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
-        if (!submitBtn) return;
 
-        const name = document.getElementById('contact-name').value.trim();
-        const email = document.getElementById('contact-email').value.trim();
-        const message = document.getElementById('contact-message').value.trim();
+        const name = document.getElementById('contact-name')?.value?.trim() || '';
+        const email = document.getElementById('contact-email')?.value?.trim() || '';
+        const message = document.getElementById('contact-message')?.value?.trim() || '';
 
         if (!email || !message) {
-            if (statusEl) statusEl.textContent = 'Please include at least an email and a message.';
+            setStatus('Please include an email and a message.');
             return;
         }
 
-        submitBtn.disabled = true;
-        submitBtn.textContent = 'Sending...';
-        if (statusEl) statusEl.textContent = '';
+        if (submitBtn) {
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+        }
+        setStatus('Sending…', { loading: true });
 
         try {
+            // Make sure BACKEND_BASE is defined in your script.js
+            // e.g. const BACKEND_BASE = 'https://tylerdonohue-backend-production.up.railway.app';
             const resp = await fetch(`${BACKEND_BASE}/contact`, {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ name, email, message }),
             });
 
@@ -53,18 +60,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (resp.ok && data.ok) {
                 form.reset();
-                if (statusEl) statusEl.textContent = 'Thanks! Your message has been sent.';
+                setStatus('Sent. Thanks — I’ll get back to you soon.');
             } else {
-                if (statusEl) statusEl.textContent =
-                    'Something went wrong sending your message. You can also email me directly.';
+                console.error('Contact failed:', resp.status, data);
+                setStatus('Could not send right now. Please email me directly.');
             }
         } catch (err) {
-            console.error('Contact submit error:', err);
-            if (statusEl) statusEl.textContent =
-                'Network error. Please try again or email me directly.';
+            console.error('Contact network error:', err);
+            setStatus('Network error. Please try again or email me directly.');
         } finally {
-            submitBtn.disabled = false;
-            submitBtn.textContent = 'Send Message';
+            setStatus(statusTextEl?.textContent || '', { loading: false });
+
+            if (submitBtn) {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Send Message';
+            }
         }
     });
 });
