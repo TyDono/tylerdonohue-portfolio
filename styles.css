@@ -961,3 +961,11 @@ ul li::before {
         transform: rotate(360deg);
     }
 }
+
+.hero-actions {
+    margin-top: 14px;
+}
+
+.hero-actions .btn {
+    min-width: 170px;
+}
